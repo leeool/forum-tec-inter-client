@@ -54,8 +54,6 @@ const Home = () => {
           Faça agora sua inscrição para o 2° Fórum Tecnológico Interdisciplinar da ETEC Adolpho Berezin. Confira a programação abaixo!
         </Paragraph>
 
-        <Slides />
-
         <Tag.Root type='title' size='lg' style={{ marginTop: "2rem", marginBottom: "0.5rem" }}>
           <Tag.Icon>
             <Calendar />
@@ -137,6 +135,8 @@ const Home = () => {
             </S.Event>
           ))}
         </S.EventContainer>
+
+        <Slides />
 
         <S.Loc>
           <Tag.Root>

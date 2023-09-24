@@ -24,7 +24,7 @@ const event: IEvent[] = [
   },
   {
     thematic: "Administração",
-    local: "Auditório alternativo (1° andar)",
+    local: "Auditório principal (quadra)",
     day: "26",
     activities: [
       {
@@ -33,17 +33,17 @@ const event: IEvent[] = [
         speaker: ["Autoridades, Coordenadores, Professores e Alunos"]
       },
       {
-        time: "20h às 20h50",
+        time: "20h",
         title: "Feira de negócios, economia criativa e circular",
-        speaker: null
+        speaker: ["Aila Lara dos Santos Silveira"]
       },
       {
-        time: "21h20 às 22h40",
+        time: "20h",
         title: "Estratégias digitais especializadas em Instagram para gerenciamento de pequenos negócios",
-        speaker: ["Paulo Queija", "Aila Lara dos Santos Silveira"]
+        speaker: ["Paulo Queija"]
       },
       {
-        time: "",
+        time: "21h20",
         title: "Desfile dos estandes empreendedores",
         speaker: null
       }
@@ -52,7 +52,7 @@ const event: IEvent[] = [
   {
     day: "26",
     thematic: "Edificações",
-    local: "Auditório principal (quadra)",
+    local: "Auditório alternativo (1° andar)",
     activities: [
       {
         time: "19 às 20h50",
@@ -103,7 +103,7 @@ const event: IEvent[] = [
         speaker: ["Kelly Santana da Costa"]
       },
       {
-        title: "Perspectiva do turismo",
+        title: "Perspectivas temporada de cruzeiros 23/24",
         time: "21h20 às 22h40",
         speaker: ["Ana Carla Camporeze"]
       },
@@ -123,7 +123,7 @@ const event: IEvent[] = [
       },
       {
         time: "21h20 às 22h40",
-        title: "Turismo verde: Turismo X Empregabilidade",
+        title: "Turismo verde e empregabilidade no campo",
         speaker: [
           "Marcos Gonçalves de Jesus",
           "Cleiton Valente Borges"
