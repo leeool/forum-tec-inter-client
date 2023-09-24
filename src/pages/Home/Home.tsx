@@ -34,8 +34,10 @@ const days = [
 
 ]
 
+type Days = "25" | "26" | "27" | "28" | "29"
+
 const Home = () => {
-  const [selectedDay, setSelectedDay] = React.useState("25")
+  const [selectedDay, setSelectedDay] = React.useState<Days>("25")
   const nav = useNavigate()
 
   const dayEvent = React.useMemo(() => {
@@ -66,7 +68,7 @@ const Home = () => {
           {days.map((d) => (
             <S.Card
               key={d.day}
-              onClick={() => setSelectedDay(d.day)}
+              onClick={() => setSelectedDay(d.day as Days)}
               data-active={selectedDay === d.day}
             >
               <S.CardDay
@@ -90,7 +92,7 @@ const Home = () => {
         <S.EventContainer>
           {dayEvent.map(e => (
             <S.Event key={e.thematic}>
-              <Tag.Root type='title' size='md'>
+              <Tag.Root type='title' size='lg'>
                 <Tag.Text>{e.thematic}</Tag.Text>
               </Tag.Root>
               <S.EventLoc>
@@ -134,9 +136,9 @@ const Home = () => {
               </Button.Root>
             </S.Event>
           ))}
+          <Slides day={selectedDay} />
         </S.EventContainer>
 
-        <Slides />
 
         <S.Loc>
           <Tag.Root>

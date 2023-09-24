@@ -135,7 +135,7 @@ const Sub = () => {
           </Button.Root>
         </S.Form>
 
-        <Slides />
+        <Slides day='all' />
       </S.Content>
 
     </S.Container>
