@@ -8,6 +8,7 @@ import introImage from "../../assets/introducao.jpeg"
 import event from 'src/data/event'
 import { useNavigate } from 'react-router-dom'
 import Slides from 'src/interfaces/Slides/Slides'
+import logoEvento from "../../assets/logo-evento.jpeg"
 
 const days = [
   {
@@ -45,13 +46,16 @@ const Home = () => {
   return (
     <S.Container>
       <S.Image src={introImage} />
-      <S.TagRoot type='title' size='2xl'>
-        <Tag.Text>2° Fórum Tecnológico Interdisciplinar</Tag.Text>
-      </S.TagRoot>
+      <S.LogoContainer>
+        <S.Logo src={logoEvento} />
+      </S.LogoContainer>
       <S.Content>
         <Paragraph>
           Faça agora sua inscrição para o 2° Fórum Tecnológico Interdisciplinar da ETEC Adolpho Berezin. Confira a programação abaixo!
         </Paragraph>
+
+        <Slides />
+
         <Tag.Root type='title' size='lg' style={{ marginTop: "2rem", marginBottom: "0.5rem" }}>
           <Tag.Icon>
             <Calendar />
@@ -154,7 +158,6 @@ const Home = () => {
           </S.LocInfo>
         </S.Loc>
 
-        <Slides />
       </S.Content>
     </S.Container>
   )

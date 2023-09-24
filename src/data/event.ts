@@ -30,7 +30,7 @@ const event: IEvent[] = [
       {
         time: "19h20",
         title: "Solenidade de abertura",
-        speaker: ["Autoridades, Coordenadores, Proofessores e Alunos"]
+        speaker: ["Autoridades, Coordenadores, Professores e Alunos"]
       },
       {
         time: "20h às 20h50",

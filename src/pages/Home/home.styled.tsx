@@ -18,6 +18,30 @@ border-radius: 4px;
 }
 `
 
+export const LogoContainer = styled.div`
+  position: absolute;
+  top: 13rem;
+  overflow: hidden;
+  max-width: 40rem;
+  padding: 0.5rem;
+
+  @media (max-width: 768px) {
+    top: 9rem;
+
+  }
+
+  @media (max-width: 500px) {
+    top: 12rem;
+}
+`
+
+export const Logo = styled.img`
+width: 100%;
+height: 100%;
+  border-radius: 4px;
+  border: 2px solid ${theme.color.gray};
+`
+
 export const TagRoot = styled(Tag.Root)`
   position: absolute;
   transform: translate(-50%, -50%);
@@ -25,9 +49,6 @@ export const TagRoot = styled(Tag.Root)`
   left: 50%;
   top: 20rem;
 
-  @media (max-width: 768px) {
-    top: 15rem;
-}
 
 `
 
