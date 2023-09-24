@@ -1,13 +1,13 @@
 import React from 'react'
 import * as S from './home.styled'
 import Button from 'src/interfaces/Button'
-import { MapPin, Clock, User, ArrowRightCircle } from "lucide-react"
+import { MapPin, Clock, User, ArrowRightCircle, Calendar, Map, School } from "lucide-react"
 import Tag from 'src/interfaces/Tag'
 import { Paragraph } from 'src/interfaces/Text'
 import introImage from "../../assets/introducao.jpeg"
-import { Calendar } from "lucide-react"
 import event from 'src/data/event'
 import { useNavigate } from 'react-router-dom'
+import Slides from 'src/interfaces/Slides/Slides'
 
 const days = [
   {
@@ -52,7 +52,7 @@ const Home = () => {
         <Paragraph>
           Faça agora sua inscrição para o 2° Fórum Tecnológico Interdisciplinar da ETEC Adolpho Berezin. Confira a programação abaixo!
         </Paragraph>
-        <Tag.Root type='tag' size='lg' style={{ marginTop: "2rem", marginBottom: "0.5rem" }}>
+        <Tag.Root type='title' size='lg' style={{ marginTop: "2rem", marginBottom: "0.5rem" }}>
           <Tag.Icon>
             <Calendar />
           </Tag.Icon>
@@ -78,7 +78,7 @@ const Home = () => {
             </S.Card>
           ))}
         </S.CardWrapper>
-        <Tag.Root size='sm' style={{ justifySelf: "end" }}>
+        <Tag.Root size='sm' type='tag' style={{ justifySelf: "end" }}>
           <Tag.Text>Deslize para ver mais</Tag.Text>
           <Tag.Icon>
             <ArrowRightCircle />
@@ -88,7 +88,7 @@ const Home = () => {
         <S.EventContainer>
           {dayEvent.map(e => (
             <S.Event key={e.thematic}>
-              <Tag.Root type='tag' size='md'>
+              <Tag.Root type='title' size='md'>
                 <Tag.Text>{e.thematic}</Tag.Text>
               </Tag.Root>
               <S.EventLoc>
@@ -141,18 +141,20 @@ const Home = () => {
           </Tag.Root>
 
           <S.LocInfo>
-            <Tag.Root size='md'>
-              <Tag.Icon><MapPin /></Tag.Icon>
+            <Tag.Root size='md' type='tag'>
+              <Tag.Icon><School /></Tag.Icon>
               <Tag.Text>ETEC Adolpho Berezin</Tag.Text>
             </Tag.Root>
 
-            <Tag.Root size='md'>
-              <Tag.Icon><MapPin /></Tag.Icon>
-              <Tag.Text>Av. Monteiro Lobato, n° 8000 - Mongaguá, Itaóca</Tag.Text>
+            <Tag.Root size='md' type='tag'>
+              <Tag.Icon><Map /></Tag.Icon>
+              <Tag.Text>Av. Monteiro Lobato, n° 8000 - Bal. Jussara, Mongaguá</Tag.Text>
             </Tag.Root>
 
           </S.LocInfo>
         </S.Loc>
+
+        <Slides />
       </S.Content>
     </S.Container>
   )

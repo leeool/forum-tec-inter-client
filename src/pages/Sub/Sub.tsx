@@ -11,6 +11,8 @@ import { ArrowLeft } from 'lucide-react'
 import event from 'src/data/event'
 import { useMutation } from 'react-query'
 import api from 'src/services/api'
+import { AxiosError } from 'axios'
+import Slides from 'src/interfaces/Slides/Slides'
 
 interface ISub {
   fullName: string
@@ -43,9 +45,12 @@ const Sub = () => {
     console.log(selectedEvent)
     console.log({ name, email, date })
 
+    if (mutation.isLoading) return
+    if (!name || !email || !date) return alert("Preencha todos os campos")
+
     const sub = {
-      fullName: name,
-      email,
+      fullName: name.trim(),
+      email: email.trim(),
       birthday: date,
       day,
       thematic
@@ -58,6 +63,9 @@ const Sub = () => {
       },
       onError: (e) => {
         console.log("error", e)
+        if (e && e instanceof AxiosError) {
+          return alert(e.response?.data.error)
+        }
       }
     })
   }
@@ -126,6 +134,8 @@ const Sub = () => {
             <Button.Text>{mutation.isLoading ? "Enviando..." : "Inscrever-se"}</Button.Text>
           </Button.Root>
         </S.Form>
+
+        <Slides />
       </S.Content>
 
     </S.Container>

@@ -4,7 +4,7 @@ import subImage from '../../assets/sub.jpeg'
 import logoEtec from '../../assets/logo-etec.png'
 import { Paragraph } from 'src/interfaces/Text'
 import Tag from 'src/interfaces/Tag'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import Button from 'src/interfaces/Button'
 import { Download } from 'lucide-react'
 import { toPng } from 'html-to-image'
@@ -27,6 +27,7 @@ const Congrats = () => {
     })
   }
 
+  if (!state) return <Navigate to={"/"} />
   return (
     <S.Container ref={imageRef}>
       <S.Image src={subImage} />

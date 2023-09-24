@@ -26,7 +26,10 @@ ${variant({
       fontFamily: "'Outfit', sans-serif",
     },
     tag: {
-      fontFamily: "'Roboto', sans-serif"
+      fontFamily: "'Roboto', sans-serif",
+      backgroundColor: theme.color.grayLight,
+      color: theme.color.red,
+      border: `2px solid ${theme.color.gray}`
     }
   }
 })}
@@ -59,6 +62,7 @@ ${variant({
     }
   }
 })}
+
 
 `
 
