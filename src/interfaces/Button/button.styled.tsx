@@ -20,6 +20,11 @@ export const Root = styled.button<IRootVariant>`
     cursor: pointer;
   border: 2px solid ${theme.color.red};
 
+  &:disabled {
+    opacity: 0.7;
+    cursor: wait
+  }
+
   ${variant({
   variants: {
     primary: {

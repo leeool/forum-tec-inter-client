@@ -52,12 +52,13 @@ const Home = () => {
         <Paragraph>
           Faça agora sua inscrição para o 2° Fórum Tecnológico Interdisciplinar da ETEC Adolpho Berezin. Confira a programação abaixo!
         </Paragraph>
-        <Tag.Root type='tag' size='lg' style={{ marginTop: "2rem" }}>
+        <Tag.Root type='tag' size='lg' style={{ marginTop: "2rem", marginBottom: "0.5rem" }}>
           <Tag.Icon>
             <Calendar />
           </Tag.Icon>
           <Tag.Text>Programação</Tag.Text>
         </Tag.Root>
+        <Paragraph>Selecione o dia de sua preferência e confira a programação</Paragraph>
 
         <S.CardWrapper>
           {days.map((d) => (
@@ -132,6 +133,26 @@ const Home = () => {
             </S.Event>
           ))}
         </S.EventContainer>
+
+        <S.Loc>
+          <Tag.Root>
+            <Tag.Icon><MapPin /></Tag.Icon>
+            <Tag.Text>Localização</Tag.Text>
+          </Tag.Root>
+
+          <S.LocInfo>
+            <Tag.Root size='md'>
+              <Tag.Icon><MapPin /></Tag.Icon>
+              <Tag.Text>ETEC Adolpho Berezin</Tag.Text>
+            </Tag.Root>
+
+            <Tag.Root size='md'>
+              <Tag.Icon><MapPin /></Tag.Icon>
+              <Tag.Text>Av. Monteiro Lobato, n° 8000 - Mongaguá, Itaóca</Tag.Text>
+            </Tag.Root>
+
+          </S.LocInfo>
+        </S.Loc>
       </S.Content>
     </S.Container>
   )

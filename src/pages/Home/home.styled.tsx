@@ -136,3 +136,14 @@ export const EventItemGuests = styled.div`
   display: grid;
   gap: 0.25rem;
 `
+
+export const Loc = styled.div`
+margin-top: 5rem;
+display: grid;
+gap: 1rem;
+`
+
+export const LocInfo = styled.div`
+  display: grid;
+  gap: 0.5rem;
+`

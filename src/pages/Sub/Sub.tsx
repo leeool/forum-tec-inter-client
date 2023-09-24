@@ -122,8 +122,8 @@ const Sub = () => {
             />
           </Input.Root>
 
-          <Button.Root >
-            <Button.Text>Inscrever-se</Button.Text>
+          <Button.Root disabled={mutation.isLoading}>
+            <Button.Text>{mutation.isLoading ? "Enviando..." : "Inscrever-se"}</Button.Text>
           </Button.Root>
         </S.Form>
       </S.Content>
