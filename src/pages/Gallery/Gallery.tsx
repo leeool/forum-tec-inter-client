@@ -27,10 +27,13 @@ const Gallery = () => {
   React.useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden"
-      return
+    } else {
+      document.body.style.overflow = "auto"
     }
-    document.body.style.overflow = "auto"
 
+    return () => {
+      document.body.style.overflow = "auto"
+    }
   }, [open])
 
   return (
