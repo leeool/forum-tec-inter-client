@@ -3,6 +3,8 @@ import App from "./App"
 import Home from "./pages/Home"
 import Sub from "./pages/Sub/Sub"
 import Congrats from "./pages/Congrats/Congrats"
+import React from "react"
+const Gallery = React.lazy(() => import("./pages/Gallery/Gallery"))
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/voucher",
         Component: Congrats
+      },
+      {
+        path: "/galeria",
+        element: <React.Suspense><Gallery /></React.Suspense>,
       }
     ]
   }

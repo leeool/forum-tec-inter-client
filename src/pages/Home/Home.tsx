@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './home.styled'
 import Button from 'src/interfaces/Button'
-import { MapPin, Clock, User, ArrowRightCircle, Calendar, Map, School } from "lucide-react"
+import { MapPin, Clock, User, ArrowRightCircle, Calendar, Map, School, Search, Camera } from "lucide-react"
 import Tag from 'src/interfaces/Tag'
 import { Paragraph } from 'src/interfaces/Text'
 import introImage from "../../assets/introducao.jpeg"
@@ -55,6 +55,13 @@ const Home = () => {
         <Paragraph>
           Faça agora sua inscrição para o 2° Fórum Tecnológico Interdisciplinar da ETEC Adolpho Berezin. Confira a programação abaixo!
         </Paragraph>
+
+        <Button.Root onClick={() => nav("galeria")} variant='secondary' style={{ marginTop: "1rem" }}>
+          <Button.Text>Ver galeria</Button.Text>
+          <Button.Icon>
+            <Camera />
+          </Button.Icon>
+        </Button.Root>
 
         <Tag.Root type='title' size='lg' style={{ marginTop: "2rem", marginBottom: "0.5rem" }}>
           <Tag.Icon>
@@ -136,9 +143,14 @@ const Home = () => {
               </Button.Root>
             </S.Event>
           ))}
-          <Slides day={selectedDay} />
         </S.EventContainer>
-
+        <Tag.Root size='sm' type='tag' style={{ justifySelf: "end" }}>
+          <Tag.Text>Deslize para ver mais</Tag.Text>
+          <Tag.Icon>
+            <ArrowRightCircle />
+          </Tag.Icon>
+        </Tag.Root>
+        <Slides day={selectedDay} />
 
         <S.Loc>
           <Tag.Root>

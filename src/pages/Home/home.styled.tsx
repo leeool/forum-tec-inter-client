@@ -111,9 +111,12 @@ export const CardTime = styled.span`
 `
 
 export const EventContainer = styled.div`
-  display: grid;
+  display: flex;
   gap: 1rem;
   margin-top: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
 `
 
 export const Event = styled.div`
@@ -123,6 +126,10 @@ border-radius: 4px;
 border: 2px solid ${theme.color.gray};
   display: grid;
 gap: 1rem;
+flex: 1;
+min-width: calc(100% - 2rem);
+scroll-snap-align: start;
+height: fit-content;
 `
 
 export const EventLoc = styled.div`
