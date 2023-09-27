@@ -13,6 +13,9 @@ import { useMutation } from 'react-query'
 import api from 'src/services/api'
 import { AxiosError } from 'axios'
 import Slides from 'src/interfaces/Slides/Slides'
+import DatePicker from 'react-date-picker'
+import 'react-date-picker/dist/DatePicker.css';
+import { Value } from 'node_modules/react-date-picker/dist/esm/shared/types'
 
 interface ISub {
   fullName: string
@@ -27,7 +30,7 @@ const Sub = () => {
   const nav = useNavigate()
   const [name, setName] = React.useState('')
   const [email, setEmail] = React.useState('')
-  const [date, setDate] = React.useState('')
+  const [date, setDate] = React.useState<Value>(null)
   const mutation = useMutation({
     mutationKey: ['sub', day, thematic],
     mutationFn: (sub: ISub) => {
@@ -40,18 +43,21 @@ const Sub = () => {
     return selectedEvent || null
   }, [day, thematic])
 
+  const selectDate = (e: Value) => {
+    setDate(e)
+  }
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(selectedEvent)
-    console.log({ name, email, date })
+    const dateValue = date?.toLocaleString().split(",")[0]
 
     if (mutation.isLoading) return
-    if (!name || !email || !date) return alert("Preencha todos os campos")
+    if (!name || !email || !dateValue) return alert("Preencha todos os campos")
 
     const sub = {
       fullName: name.trim(),
       email: email.trim(),
-      birthday: date,
+      birthday: dateValue,
       day,
       thematic
     }
@@ -118,17 +124,26 @@ const Sub = () => {
               value={email}
             />
           </Input.Root>
-          <Input.Root>
-            <Input.Label htmlFor="date">Data de nascimento</Input.Label>
-            <Input.Field
-              id="date"
-              required
-              type='date'
-              max={"2023-09-25"}
-              onChange={e => setDate(e.target.value)}
-              value={date}
-            />
-          </Input.Root>
+          {/* <Input.Root> */}
+          {/*   <Input.Label htmlFor="date">Data de nascimento</Input.Label> */}
+          {/*   <Input.Field */}
+          {/*     id="date" */}
+          {/*     required */}
+          {/*     type='date' */}
+          {/*     max={"2023-09-25"} */}
+          {/*     onChange={e => setDate(e.target.value)} */}
+          {/*     value={date} */}
+          {/*   /> */}
+          {/* </Input.Root> */}
+          <DatePicker
+            onChange={selectDate}
+            value={date}
+            format='dd/MM/yyyy'
+            locale='pt-BR'
+            disableCalendar
+            tileClassName={"date-picker"}
+            required
+          />
 
           <Button.Root disabled={mutation.isLoading}>
             <Button.Text>{mutation.isLoading ? "Enviando..." : "Inscrever-se"}</Button.Text>

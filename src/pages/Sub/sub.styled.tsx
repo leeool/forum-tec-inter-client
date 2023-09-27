@@ -45,6 +45,16 @@ gap: 1rem;
 export const Form = styled.form`
   display: grid;
   gap: 1rem;
+
+  .react-date-picker__wrapper {
+    border: 2px solid ${theme.color.gray};
+    outline: none;
+    border-radius: 4px;
+    padding: 0.25rem 1rem;
+  }
+
+  .react-date-picker__inputGroup {
+  }
 `
 
 export const Event = styled.div`
