@@ -18,6 +18,10 @@ import i_26_17 from './26-17.jpg';
 import i_26_18 from './26-18.jpg';
 import i_26_19 from './26-19.jpg';
 import i_26_20 from './26-20.jpg';
+import i_26_21 from './26-21.jpg';
+import i_26_22 from './26-22.jpeg';
+import i_26_23 from './26-23.jpeg';
+import i_26_24 from './26-24.jpeg';
 
 
 export {
@@ -41,5 +45,9 @@ export {
   i_26_18,
   i_26_19,
   i_26_20,
+  i_26_21,
+  i_26_22,
+  i_26_23,
+  i_26_24,
 };
 

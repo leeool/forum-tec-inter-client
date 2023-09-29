@@ -37,6 +37,9 @@ export const Images = styled.div`
 export const Image = styled.img`
 width: 100%;
 border-radius: 4px;
+height: 12rem;
+object-fit: contain;
+background-color: ${theme.color.grayLight};
 border: 2px solid ${theme.color.red};
 cursor: pointer;
 
@@ -59,6 +62,9 @@ export const ImageModal = styled.img`
 grid-area: 1 / -1;
 width: calc(100vw - 2rem);
 max-width: 50rem;
+max-height: calc(100vh - 2rem);
+height: calc(100%);
+object-fit: contain;
 border-radius: 4px;
 `
 
@@ -68,4 +74,5 @@ export const ModalContent = styled.div`
   left: 50%;
   transform: translate(-50%, -30%);
   display: grid;
+  background-color: ${theme.color.black};
 `
