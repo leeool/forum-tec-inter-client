@@ -135,6 +135,8 @@ const Sub = () => {
           {/*     value={date} */}
           {/*   /> */}
           {/* </Input.Root> */}
+          <Input.Root>
+          <Input.Label>Data de nascimento</Input.Label>
           <DatePicker
             onChange={selectDate}
             value={date}
@@ -144,6 +146,7 @@ const Sub = () => {
             tileClassName={"date-picker"}
             required
           />
+          </Input.Root>
 
           <Button.Root disabled={mutation.isLoading}>
             <Button.Text>{mutation.isLoading ? "Enviando..." : "Inscrever-se"}</Button.Text>
