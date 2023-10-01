@@ -1,45 +1,43 @@
-import React from 'react'
-import photosData from '../../data/photos'
-import * as S from './gallery.styled'
-import Tag from '../../interfaces/Tag'
-import Button from 'src/interfaces/Button'
-import { ArrowLeft, Camera, X } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
-
-const days = Object.keys(photosData)
+import React from "react";
+import photosData from "../../data/photos";
+import * as S from "./gallery.styled";
+import Tag from "../../interfaces/Tag";
+import Button from "src/interfaces/Button";
+import { ArrowLeft, Camera, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Gallery = () => {
-  const nav = useNavigate()
-  const [open, setOpen] = React.useState(false)
-  const [selected, setSelected] = React.useState("")
+  const nav = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState("");
 
   const handleOpen = (src: string) => {
-    setSelected(src)
-    setOpen(true)
-  }
+    setSelected(src);
+    setOpen(true);
+  };
 
   const handleClose = (e: React.MouseEvent) => {
     if (e.target instanceof HTMLDivElement) {
-      setOpen(false)
+      setOpen(false);
     }
-  }
+  };
 
   React.useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = "auto"
-    }
-  }, [open])
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
 
   return (
     <S.Container>
       <S.Header>
-        <Button.Root variant='secondary' onClick={() => nav(-1)}>
+        <Button.Root variant="secondary" onClick={() => nav(-1)}>
           <Button.Icon>
             <ArrowLeft />
           </Button.Icon>
@@ -54,7 +52,7 @@ const Gallery = () => {
       </S.Header>
 
       <S.Content>
-        {days.map((day, index) => (
+        {/* {days.map((day, index) => (
           <S.Day key={day + index}>
             <Tag.Root>
               <Tag.Text>Dia {day}/09</Tag.Text>
@@ -66,19 +64,52 @@ const Gallery = () => {
             </S.Images>
           </S.Day>
         ))
-        }
+        } */}
+        {photosData.map((d) => (
+          <S.Day>
+            <Tag.Root>
+              <Tag.Text>Dia {d.day}/09</Tag.Text>
+            </Tag.Root>
+            {d.events.map((e) => (
+              <S.EventDay>
+                <Tag.Root type="tag" size="md">
+                  <Tag.Text>{e.thematic}</Tag.Text>
+                </Tag.Root>
+                <S.Images>
+                  {e.photos.map((p) => (
+                    <S.Image src={p} onClick={() => handleOpen(p)} />
+                  ))}
+                </S.Images>
+              </S.EventDay>
+            ))}
+          </S.Day>
+        ))}
       </S.Content>
 
-      {open && <S.Modal onClick={handleClose}>
-        <S.ModalContent>
-          <Button.Root onClick={() => setOpen(false)} style={{ gridArea: "1 / -1", zIndex: 2, width: "fit-content", alignSelf: "start", justifySelf: "end", margin: "0.5rem" }}>
-            <Button.Icon><X strokeWidth={3} /></Button.Icon>
-          </Button.Root>
-          <S.ImageModal src={selected} />
-        </S.ModalContent>
-      </S.Modal>}
+      {open && (
+        <S.Modal onClick={handleClose}>
+          <S.ModalContent>
+            <Button.Root
+              onClick={() => setOpen(false)}
+              style={{
+                gridArea: "1 / -1",
+                zIndex: 2,
+                width: "fit-content",
+                alignSelf: "start",
+                justifySelf: "end",
+                margin: "0.5rem",
+              }}
+            >
+              <Button.Icon>
+                <X strokeWidth={3} />
+              </Button.Icon>
+            </Button.Root>
+            <S.ImageModal src={selected} />
+          </S.ModalContent>
+        </S.Modal>
+      )}
     </S.Container>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;

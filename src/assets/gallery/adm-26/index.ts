@@ -24,7 +24,7 @@ import i_26_23 from './26-23.jpeg';
 import i_26_24 from './26-24.jpeg';
 
 
-export {
+export default {
   i_26_1,
   i_26_2,
   i_26_3,
