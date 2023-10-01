@@ -44,6 +44,8 @@ export const Image = styled.img`
   background-color: ${theme.color.grayLight};
   border: 2px solid ${theme.color.red};
   cursor: pointer;
+  background-color: #212121;
+  content-visibility: auto;
 
   &:hover {
     filter: brightness(0.8);

@@ -38,7 +38,13 @@ const Images = ({ images, handleOpen }: Props) => {
     <>
       <S.Images>
         {activeImages.map((i, index) => (
-          <S.Image src={i} onClick={() => handleOpen(i)} key={index} />
+          <S.Image
+            loading="lazy"
+            decoding="async"
+            src={i}
+            onClick={() => handleOpen(i)}
+            key={index}
+          />
         ))}
       </S.Images>
       <S.ButtonWrapper>
