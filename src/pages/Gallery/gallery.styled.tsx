@@ -21,13 +21,14 @@ export const Content = styled.div`
 
 export const Day = styled.div`
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const Images = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1rem;
+  gap: 0.5rem;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
@@ -37,14 +38,19 @@ export const Images = styled.div`
 export const Image = styled.img`
   width: 100%;
   border-radius: 4px;
-  height: 12rem;
-  object-fit: contain;
+  height: 15rem;
+  object-fit: cover;
+  object-position: center;
   background-color: ${theme.color.grayLight};
   border: 2px solid ${theme.color.red};
   cursor: pointer;
 
   &:hover {
     filter: brightness(0.8);
+  }
+
+  @media (max-width: 768px) {
+    height: 10rem;
   }
 `;
 
@@ -80,4 +86,14 @@ export const ModalContent = styled.div`
 export const EventDay = styled.div`
   display: grid;
   gap: 1rem;
+  margin-bottom: 2rem;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    width: fit-content;
+  }
 `;

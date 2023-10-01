@@ -1,20 +1,34 @@
 import adm26 from "src/assets/gallery/adm-26";
 import enf28 from "src/assets/gallery/enf-28";
+import i2022 from "src/assets/gallery/2022";
+import edf27 from "src/assets/gallery/edf-27";
+import tur27 from "src/assets/gallery/tur-27";
+import inf29 from "src/assets/gallery/inf-29";
 
 interface IGallery {
-  day: "25" | "26" | "27" | "28" | "29";
+  day: "2022" | "25" | "26" | "27" | "28" | "29";
   events: {
     thematic:
-      | "Administração"
-      | "Edificações"
-      | "Turismo"
-      | "Informática"
-      | "Enfermagem";
+    | "2022"
+    | "Administração"
+    | "Edificações"
+    | "Turismo"
+    | "Informática"
+    | "Enfermagem";
     photos: string[];
   }[];
 }
 
 const photosData: IGallery[] = [
+  {
+    day: "2022",
+    events: [
+      {
+        thematic: "2022",
+        photos: [...Object.values(i2022)],
+      },
+    ],
+  },
   {
     day: "26",
     events: [
@@ -25,11 +39,33 @@ const photosData: IGallery[] = [
     ],
   },
   {
+    day: "27",
+    events: [
+      {
+        thematic: "Edificações",
+        photos: [...Object.values(edf27)],
+      },
+    ],
+  },
+  {
     day: "28",
     events: [
       {
+        thematic: "Turismo",
+        photos: [...Object.values(tur27)],
+      },
+      {
         thematic: "Enfermagem",
         photos: [...Object.values(enf28)],
+      },
+    ],
+  },
+  {
+    day: "29",
+    events: [
+      {
+        thematic: "Informática",
+        photos: [...Object.values(inf29)],
       },
     ],
   },
