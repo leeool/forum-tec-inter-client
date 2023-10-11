@@ -9,12 +9,10 @@ import {
   Calendar,
   Map,
   School,
-  Search,
   Camera,
 } from "lucide-react";
 import Tag from "src/interfaces/Tag";
 import { Paragraph } from "src/interfaces/Text";
-import introImage from "../../assets/introducao.jpeg";
 import event from "src/data/event";
 import { useNavigate } from "react-router-dom";
 import Slides from "src/interfaces/Slides/Slides";
@@ -48,6 +46,7 @@ type Days = "25" | "26" | "27" | "28" | "29";
 const Home = () => {
   const [selectedDay, setSelectedDay] = React.useState<Days>("25");
   const nav = useNavigate();
+  const ref = React.useRef<HTMLIFrameElement | null>(null);
 
   const dayEvent = React.useMemo(() => {
     const dayEvent = event.filter((e) => e.day === selectedDay);
@@ -56,7 +55,26 @@ const Home = () => {
 
   return (
     <S.Container>
-      <S.Image src={introImage} />
+      {/*<S.Image src={introImage} />*/}
+      <div
+        className="player"
+        style={{ padding: "56% 0 0 0", position: "relative" }}
+      >
+        <iframe
+          src="https://player.vimeo.com/video/873147524?badge=1&title=0&sidedock=0&amp;autoplay=1&amp;quality_selector=1&amp;progress_bar=0&amp;player_id=0&amp;app_id=58479"
+          frameBorder="0"
+          allow="autoplay"
+          ref={ref}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+          title="II Forum Tecnologico ETEEC"
+        ></iframe>
+      </div>
       <S.LogoContainer>
         <S.Logo src={logoEvento} />
       </S.LogoContainer>
