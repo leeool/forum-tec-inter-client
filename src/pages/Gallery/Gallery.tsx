@@ -6,6 +6,7 @@ import Button from "src/interfaces/Button";
 import { ArrowLeft, Camera, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Images from "./Images";
+import { overflow } from "styled-system";
 
 const Gallery = () => {
   const nav = useNavigate();
@@ -53,6 +54,7 @@ const Gallery = () => {
       </S.Header>
 
       <S.Content>
+        <Video />
         {photosData.map((d) => (
           <S.Day key={d.day}>
             <Tag.Root size="lg">
@@ -93,6 +95,35 @@ const Gallery = () => {
         </S.Modal>
       )}
     </S.Container>
+  );
+};
+
+const Video = () => {
+  return (
+    <div>
+      <div
+        style={{
+          position: "relative",
+          padding: "56% 0 0 0",
+          borderRadius: "0.5rem",
+          overflow: "hidden",
+        }}
+      >
+        <iframe
+          src="https://player.vimeo.com/video/874879937?badge=1&title=0&sidedock=0&amp;autoplay=1&amp;quality_selector=1&amp;progress_bar=0&amp;player_id=0&amp;app_id=58479"
+          frameBorder="0"
+          loading="lazy"
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            left: 0,
+            top: 0,
+          }}
+        ></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
   );
 };
 

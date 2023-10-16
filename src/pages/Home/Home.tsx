@@ -46,12 +46,16 @@ type Days = "25" | "26" | "27" | "28" | "29";
 const Home = () => {
   const [selectedDay, setSelectedDay] = React.useState<Days>("25");
   const nav = useNavigate();
-  const ref = React.useRef<HTMLIFrameElement | null>(null);
+  const ref = React.useRef<HTMLDivElement | null>(null);
 
   const dayEvent = React.useMemo(() => {
     const dayEvent = event.filter((e) => e.day === selectedDay);
     return dayEvent;
   }, [selectedDay]);
+
+  React.useEffect(() => {
+    console.log(ref.current);
+  }, [ref]);
 
   return (
     <S.Container>
@@ -59,12 +63,13 @@ const Home = () => {
       <div
         className="player"
         style={{ padding: "56% 0 0 0", position: "relative" }}
+        ref={ref}
       >
         <iframe
           src="https://player.vimeo.com/video/873147524?badge=1&title=0&sidedock=0&amp;autoplay=1&amp;quality_selector=1&amp;progress_bar=0&amp;player_id=0&amp;app_id=58479"
           frameBorder="0"
           allow="autoplay"
-          ref={ref}
+          loading="lazy"
           style={{
             position: "absolute",
             top: 0,
