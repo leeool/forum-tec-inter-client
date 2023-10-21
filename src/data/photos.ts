@@ -1,12 +1,12 @@
-import adm26 from "src/assets/gallery/adm-26";
-import enf28 from "src/assets/gallery/enf-28";
+import adm26 from "src/assets/gallery/2023/adm-26";
+import enf28 from "src/assets/gallery/2023/enf-28";
 import i2022 from "src/assets/gallery/2022";
-import edf27 from "src/assets/gallery/edf-27";
-import tur27 from "src/assets/gallery/tur-27";
-import inf29 from "src/assets/gallery/inf-29";
+import edf27 from "src/assets/gallery/2023/edf-27";
+import tur27 from "src/assets/gallery/2023/tur-27";
+import inf29 from "src/assets/gallery/2023/inf-29";
 
 interface IGallery {
-  day: "2022" | "25" | "26" | "27" | "28" | "29";
+  day: TypeDays | "2022";
   events: {
     thematic:
     | "2022"

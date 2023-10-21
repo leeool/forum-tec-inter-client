@@ -6,7 +6,6 @@ import Button from "src/interfaces/Button";
 import { ArrowLeft, Camera, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Images from "./Images";
-import { overflow } from "styled-system";
 
 const Gallery = () => {
   const nav = useNavigate();
