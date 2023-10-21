@@ -1,11 +1,13 @@
 import React from "react";
-import photosData from "../../data/photos";
+import photosData2023 from "src/data/photos2023";
 import * as S from "./gallery.styled";
 import Tag from "../../interfaces/Tag";
 import Button from "src/interfaces/Button";
 import { ArrowLeft, Camera, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Images from "./Images";
+
+const photosData = [photosData2023];
 
 const Gallery = () => {
   const nav = useNavigate();
@@ -54,21 +56,23 @@ const Gallery = () => {
 
       <S.Content>
         <Video />
-        {photosData.map((d) => (
-          <S.Day key={d.day}>
-            <Tag.Root size="lg">
-              <Tag.Text>{d.day === "2022" ? "2022" : d.day + "/09"}</Tag.Text>
-            </Tag.Root>
-            {d.events.map((e) => (
-              <S.EventDay key={e.thematic}>
-                <Tag.Root type="tag" size="sm">
-                  <Tag.Text>{e.thematic}</Tag.Text>
-                </Tag.Root>
-                <Images images={e.photos} handleOpen={handleOpen} />
-              </S.EventDay>
-            ))}
-          </S.Day>
-        ))}
+        {photosData.map((d) =>
+          d.map((p) => (
+            <S.Day key={p.day}>
+              <Tag.Root size="lg">
+                <Tag.Text>{p.day === "2022" ? "2022" : p.day + "/09"}</Tag.Text>
+              </Tag.Root>
+              {p.events.map((e) => (
+                <S.EventDay key={e.thematic}>
+                  <Tag.Root type="tag" size="sm">
+                    <Tag.Text>{e.thematic}</Tag.Text>
+                  </Tag.Root>
+                  <Images images={e.photos} handleOpen={handleOpen} />
+                </S.EventDay>
+              ))}
+            </S.Day>
+          )),
+        )}
       </S.Content>
 
       {open && (

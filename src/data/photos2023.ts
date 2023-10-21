@@ -5,20 +5,6 @@ import edf27 from "src/assets/gallery/2023/edf-27";
 import tur27 from "src/assets/gallery/2023/tur-27";
 import inf29 from "src/assets/gallery/2023/inf-29";
 
-interface IGallery {
-  day: TypeDays | "2022";
-  events: {
-    thematic:
-    | "2022"
-    | "Administração"
-    | "Edificações"
-    | "Turismo"
-    | "Informática"
-    | "Enfermagem";
-    photos: string[];
-  }[];
-}
-
 const photosData: IGallery[] = [
   {
     day: "2022",

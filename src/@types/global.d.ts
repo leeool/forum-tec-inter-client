@@ -9,6 +9,20 @@ interface IEvent {
   }[];
 }
 
+interface IGallery {
+  day: TypeDays | "2022";
+  events: {
+    thematic:
+    | "2022"
+    | "Administração"
+    | "Edificações"
+    | "Turismo"
+    | "Informática"
+    | "Enfermagem";
+    photos: string[];
+  }[];
+}
+
 type TypeDays = "25" | "26" | "27" | "28" | "29";
 
 declare module "*.jpg";
